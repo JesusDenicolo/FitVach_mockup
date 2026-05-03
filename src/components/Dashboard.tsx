@@ -12,6 +12,7 @@ import {
   TrendingUp,
   ChevronDown,
 } from "lucide-react";
+import { IMAGES } from "@/constants/images";
 
 export function Dashboard() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-            <Logo />
+            <Logo variant="image" imageUrl={IMAGES.LOGO} />
 
             <nav className="flex flex-wrap gap-4 md:gap-8 text-sm md:text-base">
               <button className="flex items-center gap-2 fitvach-orange">
