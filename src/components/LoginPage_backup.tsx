@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Logo } from "./Logo";
+import { IMAGES } from "@/constants/images";
 import { Mail, Lock } from "lucide-react";
 
 export function LoginPage() {
@@ -131,7 +132,8 @@ export function LoginPage() {
       {/* IMAGEN */}
       <div className="hidden md:block md:w-1/2 relative">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1517836357463-d25ddfcbf042"
+          src={IMAGES.ATHLETE_FEMALE}
+          fallbackSrc={IMAGES.PLACEHOLDER}
           alt="fitness"
           className="w-full h-full object-cover"
         />

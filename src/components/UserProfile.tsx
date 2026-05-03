@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Logo } from "./Logo";
+import { IMAGES } from "@/constants/images";
 import {
   Activity,
   User,
@@ -22,8 +23,7 @@ export function UserProfile() {
     sport: "Running",
     location: "Madrid",
     distance: "2.5 km",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25ddfcbf042",
+    image: IMAGES.ATHLETE_FEMALE,
     description:
       "Me encanta correr y busco compañeros de entrenamiento.",
   };

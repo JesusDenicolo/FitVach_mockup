@@ -1,25 +1,40 @@
 // src/components/figma/ImageWithFallback.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
-
-const ERROR_IMG_SRC =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg==";
+import { IMAGES } from "@/constants/images";
 
 interface ImageWithFallbackProps
   extends React.ImgHTMLAttributes<HTMLImageElement> {
   showLoadingState?: boolean;
+  fallbackSrc?: string;
 }
 
 export function ImageWithFallback({
   showLoadingState = true,
+  fallbackSrc,
+  src,
   ...props
 }: ImageWithFallbackProps) {
+  const finalFallbackSrc = fallbackSrc ?? IMAGES.PLACEHOLDER;
+  const [currentSrc, setCurrentSrc] = useState<string>(
+    typeof src === "string" && src.length > 0 ? src : finalFallbackSrc
+  );
   const [didError, setDidError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    setCurrentSrc(typeof src === "string" && src.length > 0 ? src : finalFallbackSrc);
+    setDidError(false);
+    setIsLoading(true);
+  }, [src, finalFallbackSrc]);
+
   const handleError = () => {
-    console.warn(`Failed to load image: ${props.src}`);
-    setDidError(true);
+    if (currentSrc !== finalFallbackSrc) {
+      setCurrentSrc(finalFallbackSrc);
+      setDidError(true);
+    } else {
+      setDidError(true);
+    }
     setIsLoading(false);
   };
 
@@ -27,20 +42,19 @@ export function ImageWithFallback({
     setIsLoading(false);
   };
 
-  const { src, alt, style, className, ...rest } = props;
+  const { alt, style, className, ...rest } = props;
   const wrapperClassName = `relative ${className ?? ""}`.trim();
 
-  // Estado de error: mostrar icono
+  // Estado de error: mostrar imagen de fallback
   if (didError) {
     return (
-      <div
-        className={`inline-flex items-center justify-center bg-gray-100 rounded-lg ${
-          className ?? ""
-        }`}
-        style={style}
-        title={`Error loading: ${src}`}
-      >
-        <ImageIcon className="w-8 h-8 text-gray-400" />
+      <div className={wrapperClassName} style={style}>
+        <img
+          src={finalFallbackSrc}
+          alt={alt ?? "Imagen de respaldo"}
+          className={`${className ?? ""} opacity-100 object-cover`}
+          {...rest}
+        />
       </div>
     );
   }
@@ -55,7 +69,7 @@ export function ImageWithFallback({
         />
       )}
       <img
-        src={src}
+        src={currentSrc}
         alt={alt}
         className={`${className ?? ""} ${
           isLoading ? "opacity-0" : "opacity-100"

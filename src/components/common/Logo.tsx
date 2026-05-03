@@ -1,4 +1,6 @@
 // src/components/common/Logo.tsx
+import { IMAGES } from "@/constants/images";
+
 interface LogoProps {
   className?: string;
   showText?: boolean;
@@ -29,7 +31,7 @@ export function Logo({
   className = "", 
   showText = true,
   variant = 'icon',
-  imageUrl = "https://imgur.com/AHAWRr2.png",
+  imageUrl = IMAGES.LOGO,
   size = 'md'
 }: LogoProps) {
   const sizeConfig = sizeClasses[size];

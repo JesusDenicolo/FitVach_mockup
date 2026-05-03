@@ -1,3 +1,5 @@
+import { IMAGES } from "@/constants/images";
+
 interface LogoProps {
   className?: string;
   showText?: boolean;
@@ -9,7 +11,7 @@ export function Logo({ className = "", showText = true }: LogoProps) {
       
       {/* ICONO */}
       <img
-        src="/images/logo.png"
+        src={IMAGES.LOGO}
         alt="FitVatch Logo"
         className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-lg"
       />
