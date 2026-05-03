@@ -9,8 +9,9 @@ import {
   LogOut,
   MapPin,
   Calendar,
-  TrendingUp,
   ArrowLeft,
+  Award,
+  Clock,
 } from "lucide-react";
 
 export function UserProfile() {
@@ -26,15 +27,24 @@ export function UserProfile() {
       level: "Intermedio",
       distance: "2.5 km",
       location: "Madrid",
-      image: IMAGES.ATHLETE_FEMALE,
+      image:
+        "https://images.unsplash.com/photo-1645238426817-8c3e7d1396cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHJ1bm5pbmclMjBmaXRuZXNzfGVufDF8fHx8MTc2NDI0NDUyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description:
         "Me encanta correr y busco compañeros de entrenamiento. Estoy disponible entre semana y preparo un 10K para el próximo mes.",
-      stats: [
-        { label: "Sesiones esta semana", value: "5" },
-        { label: "Ritmo promedio", value: "5:10 /km" },
-        { label: "Último entrenamiento", value: "25 min" },
+      stats: {
+        workouts: 18,
+        connections: 24,
+        achievements: 12,
+      },
+      interests: ["Carreras", "Trail", "Nutrición deportiva"],
+      activities: [
+        { sport: "Running 5K", date: "Hoy", duration: "30 min" },
+        { sport: "Intervalos en pista", date: "Ayer", duration: "45 min" },
       ],
-      goal: "Preparar un 10K en menos de 55 minutos.",
+      availability: {
+        weekdays: ["7:00 AM - 9:00 AM", "6:00 PM - 8:00 PM"],
+        weekend: ["8:00 AM - 12:00 PM", "5:00 PM - 7:00 PM"],
+      },
     },
     {
       id: 2,
@@ -48,12 +58,20 @@ export function UserProfile() {
         "https://images.unsplash.com/photo-1552402896-0c6cd7cdecf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBjeWNsaW5nJTIwYXRobGV0ZXxlbnwxfHx8fDE3NjQyNjM4ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description:
         "Amante del ciclismo de carretera y rutas largas. Busco compañeros para salidas de fin de semana.",
-      stats: [
-        { label: "Kilómetros este mes", value: "120 km" },
-        { label: "Velocidad media", value: "28 km/h" },
-        { label: "Rutas completadas", value: "8" },
+      stats: {
+        workouts: 20,
+        connections: 18,
+        achievements: 14,
+      },
+      interests: ["Rutas largas", "Ciclocross", "Nutrición"],
+      activities: [
+        { sport: "Ruta 60 km", date: "Hoy", duration: "2h 10m" },
+        { sport: "Entrenamiento de fuerza", date: "Martes", duration: "50 min" },
       ],
-      goal: "Aumentar la resistencia para rutas de 100 km.",
+      availability: {
+        weekdays: ["6:00 AM - 8:00 AM", "6:00 PM - 9:00 PM"],
+        weekend: ["9:00 AM - 1:00 PM", "4:00 PM - 6:00 PM"],
+      },
     },
     {
       id: 3,
@@ -67,12 +85,101 @@ export function UserProfile() {
         "https://images.unsplash.com/photo-1623171855411-3b686d975cf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHlvZ2ElMjBmaXRuZXNzfGVufDF8fHx8MTc2NDE0NTQ0OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description:
         "Practico yoga para mejorar mi flexibilidad y encontrar un grupo calmado con quien compartir clases.",
-      stats: [
-        { label: "Clases este mes", value: "7" },
-        { label: "Duración media", value: "55 min" },
-        { label: "Sesiones online", value: "3" },
+      stats: {
+        workouts: 12,
+        connections: 14,
+        achievements: 9,
+      },
+      interests: ["Mindfulness", "Meditación", "Stretching"],
+      activities: [
+        { sport: "Yoga restaurativo", date: "Hoy", duration: "55 min" },
+        { sport: "Clase de Vinyasa", date: "Jueves", duration: "50 min" },
       ],
-      goal: "Conseguir mayor estabilidad y calma en cada práctica.",
+      availability: {
+        weekdays: ["8:00 AM - 10:00 AM", "5:00 PM - 7:00 PM"],
+        weekend: ["10:00 AM - 12:00 PM", "6:00 PM - 8:00 PM"],
+      },
+    },
+    {
+      id: 4,
+      name: "David López",
+      age: 31,
+      sport: "Tenis",
+      level: "Intermedio",
+      distance: "3.2 km",
+      location: "Sevilla",
+      image:
+        "https://images.unsplash.com/photo-1711054669706-04ff7a663834?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjB0ZW5uaXMlMjBzcG9ydHN8ZW58MXx8fHwxNzY0MjYzODg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      description:
+        "Juego tenis varias veces a la semana y busco rivales con buen nivel para mejorar mi saque.",
+      stats: {
+        workouts: 16,
+        connections: 10,
+        achievements: 11,
+      },
+      interests: ["Tenis", "Pádel", "Condicionamiento"],
+      activities: [
+        { sport: "Partido amistoso", date: "Sábado", duration: "1h 30m" },
+        { sport: "Práctica de saque", date: "Miércoles", duration: "45 min" },
+      ],
+      availability: {
+        weekdays: ["7:00 AM - 9:00 AM", "5:00 PM - 7:00 PM"],
+        weekend: ["10:00 AM - 2:00 PM", "5:00 PM - 7:00 PM"],
+      },
+    },
+    {
+      id: 5,
+      name: "Laura Sánchez",
+      age: 29,
+      sport: "Natación",
+      level: "Avanzado",
+      distance: "4.5 km",
+      location: "Granada",
+      image:
+        "https://images.unsplash.com/photo-1470376619031-a6791e534bf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHN3aW1taW5nJTIwcG9vbHxlbnwxfHx8fDE3NjQyMzkzNzl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      description:
+        "Entreno en piscina cubierta y participo en entrenamientos de grupo. Me gustaría encontrar compañeras para triatlones.",
+      stats: {
+        workouts: 22,
+        connections: 16,
+        achievements: 15,
+      },
+      interests: ["Triatlón", "Natación técnica", "Recuperación"],
+      activities: [
+        { sport: "Series de crol", date: "Viernes", duration: "40 min" },
+        { sport: "Entrenamiento de técnica", date: "Miércoles", duration: "35 min" },
+      ],
+      availability: {
+        weekdays: ["6:30 AM - 8:30 AM", "5:30 PM - 7:30 PM"],
+        weekend: ["9:00 AM - 12:00 PM", "4:00 PM - 6:00 PM"],
+      },
+    },
+    {
+      id: 6,
+      name: "Javier Torres",
+      age: 34,
+      sport: "Baloncesto",
+      level: "Avanzado",
+      distance: "6.8 km",
+      location: "Bilbao",
+      image:
+        "https://images.unsplash.com/photo-1710160827611-d9cef9e08100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBiYXNrZXRiYWxsJTIwc3BvcnR8ZW58MXx8fHwxNzY0MjYzODg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      description:
+        "Juego en un equipo local y busco compañeros para entrenar tiros y jugadas al aire libre.",
+      stats: {
+        workouts: 19,
+        connections: 12,
+        achievements: 13,
+      },
+      interests: ["Tiros libres", "Partidos 3x3", "Resistencia"],
+      activities: [
+        { sport: "Entrenamiento de lanzamiento", date: "Hoy", duration: "1h" },
+        { sport: "Partido de equipo", date: "Domingo", duration: "1h 15m" },
+      ],
+      availability: {
+        weekdays: ["6:00 PM - 8:00 PM"],
+        weekend: ["10:00 AM - 1:00 PM", "4:00 PM - 6:00 PM"],
+      },
     },
   ];
 
@@ -127,9 +234,9 @@ export function UserProfile() {
         </button>
 
         {/* GRID */}
-<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
-          {/* PERFIL */}
+          {/* Left Column */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-2xl shadow-md overflow-hidden">
 
@@ -142,94 +249,131 @@ export function UserProfile() {
                 />
               </div>
 
-              {/* INFO */}
-              <div className="p-4 md:p-6 space-y-3 text-center md:text-left">
+              {/* Profile Info */}
+              <div className="p-6">
+                <h2 className="text-2xl mb-1">{selectedUser.name}</h2>
+                <p className="text-gray-600 mb-4">{selectedUser.age} años</p>
 
-                <h2 className="text-xl md:text-2xl font-semibold">
-                  {selectedUser.name}
-                </h2>
-
-                <p className="text-gray-600 text-sm">
-                  {selectedUser.age} años
-                </p>
-
-                <div className="flex justify-center md:justify-start items-center gap-2 text-gray-600 text-sm">
-                  <Activity className="w-4 h-4" />
-                  {selectedUser.sport}
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <Activity className="w-5 h-5 fitvach-orange" />
+                    <span>{selectedUser.sport}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <MapPin className="w-5 h-5 fitvach-blue" />
+                    <div>
+                      <p>{selectedUser.location}</p>
+                      <p className="text-sm text-gray-500">{selectedUser.distance}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <Calendar className="w-5 h-5 text-green-500" />
+                    <span>Miembro desde 2023</span>
+                  </div>
                 </div>
 
-                <div className="flex justify-center md:justify-start items-center gap-2 text-gray-600 text-sm">
-                  <MapPin className="w-4 h-4" />
-                  {selectedUser.location} • {selectedUser.distance}
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+                  <div className="text-center">
+                    <p className="text-2xl fitvach-orange">{selectedUser.stats.workouts}</p>
+                    <p className="text-xs text-gray-600">Entrenamientos</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl fitvach-blue">{selectedUser.stats.connections}</p>
+                    <p className="text-xs text-gray-600">Conexiones</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl text-green-500">{selectedUser.stats.achievements}</p>
+                    <p className="text-xs text-gray-600">Logros</p>
+                  </div>
                 </div>
 
-                <div className="flex justify-center md:justify-start items-center gap-2 text-gray-600 text-sm">
-                  <TrendingUp className="w-4 h-4" />
-                  Nivel {selectedUser.level}
-                </div>
-
-                <div className="flex justify-center md:justify-start items-center gap-2 text-gray-600 text-sm">
-                  <Calendar className="w-4 h-4" />
-                  Miembro desde 2023
-                </div>
-
-                {/* BOTONES */}
-                <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-2">
-                  <button className="w-full py-3 bg-fitvach-orange text-white rounded-xl">
+                {/* Action Buttons */}
+                <div className="space-y-3">
+                  <button className="w-full bg-fitvach-orange text-white py-3 rounded-xl hover:bg-fitvach-orange-dark transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <User className="w-5 h-5" />
                     Conectar
                   </button>
-                  <button className="w-full py-3 border rounded-xl">
-                    Mensaje
+                  <button className="w-full border-2 border-fitvach-blue text-fitvach-blue py-3 rounded-xl hover:bg-fitvach-blue hover:text-white transition-all flex items-center justify-center gap-2">
+                    <MessageCircle className="w-5 h-5" />
+                    Enviar mensaje
                   </button>
                 </div>
-
               </div>
             </div>
           </div>
 
-          {/* CONTENIDO */}
-          <div className="md:col-span-2 space-y-4">
-
-            {/* SOBRE MI */}
-            <div className="bg-white rounded-2xl shadow-md p-4 md:p-6">
-              <h3 className="text-lg md:text-xl mb-2">
-                Sobre mí
-              </h3>
-              <p className="text-gray-700 text-sm md:text-base">
-                {selectedUser.description}
-              </p>
+          {/* Right Column - Details */}
+          <div className="col-span-2 space-y-6">
+            {/* About Section */}
+            <div className="bg-white rounded-2xl shadow-md p-6">
+              <h3 className="text-xl mb-4">Sobre mí</h3>
+              <p className="text-gray-700 leading-relaxed">{selectedUser.description}</p>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <div className="bg-white rounded-2xl shadow-md p-4 md:p-6">
-                <h3 className="text-lg md:text-xl mb-2">
-                  Estadísticas clave
-                </h3>
-                <div className="space-y-3">
-                  {selectedUser.stats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="p-3 bg-gray-50 rounded-xl flex justify-between text-sm"
-                    >
-                      <span>{stat.label}</span>
-                      <span>{stat.value}</span>
+            {/* Interests */}
+            <div className="bg-white rounded-2xl shadow-md p-6">
+              <h3 className="text-xl mb-4">Intereses</h3>
+              <div className="flex flex-wrap gap-3">
+                {selectedUser.interests.map((interest, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-gradient-to-r from-fitvach-orange/10 to-fitvach-blue/10 rounded-full text-gray-700 border border-gray-200"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Recent Activities */}
+            <div className="bg-white rounded-2xl shadow-md p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Award className="w-6 h-6 fitvach-orange" />
+                <h3 className="text-xl">Actividades recientes</h3>
+              </div>
+
+              <div className="space-y-4">
+                {selectedUser.activities.map((activity, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-fitvach-orange to-fitvach-blue rounded-full flex items-center justify-center">
+                        <Activity className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-gray-900">{activity.sport}</p>
+                        <p className="text-sm text-gray-500">{activity.date}</p>
+                      </div>
                     </div>
-                  ))}
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Clock className="w-4 h-4" />
+                      <span>{activity.duration}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Availability */}
+            <div className="bg-white rounded-2xl shadow-md p-6">
+              <h3 className="text-xl mb-4">Disponibilidad habitual</h3>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="p-4 border-2 border-green-500 rounded-xl bg-green-50">
+                  <p className="text-green-700">Lunes - Viernes</p>
+                  <p className="text-sm text-gray-600 mt-1">{selectedUser.availability.weekdays[0]}</p>
+                  <p className="text-sm text-gray-600">{selectedUser.availability.weekdays[1]}</p>
+                </div>
+                <div className="p-4 border-2 border-blue-500 rounded-xl bg-blue-50">
+                  <p className="text-blue-700">Fines de semana</p>
+                  <p className="text-sm text-gray-600 mt-1">{selectedUser.availability.weekend[0]}</p>
+                  <p className="text-sm text-gray-600">{selectedUser.availability.weekend[1]}</p>
                 </div>
               </div>
-
-              <div className="bg-white rounded-2xl shadow-md p-4 md:p-6">
-                <h3 className="text-lg md:text-xl mb-2">
-                  Objetivo
-                </h3>
-                <p className="text-gray-700 text-sm md:text-base">
-                  {selectedUser.goal}
-                </p>
-              </div>
             </div>
-
           </div>
-
         </div>
 
       </main>
