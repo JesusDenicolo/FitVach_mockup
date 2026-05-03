@@ -236,7 +236,10 @@ export function Dashboard() {
                   {athlete.distance}
                 </div>
 
-                <button className="w-full py-3 md:py-3 bg-fitvach-orange text-white rounded-xl shadow-md">
+                <button
+                  onClick={() => navigate(`/profile/${athlete.id}`)}
+                  className="w-full py-3 md:py-3 bg-fitvach-orange text-white rounded-xl shadow-md hover:bg-fitvach-orange-dark transition-colors"
+                >
                   Conectar
                 </button>
 
